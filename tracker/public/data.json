@@ -1,0 +1,82 @@
+{
+    "courses": [
+        {
+            "title": "Docker",
+            "description": "Master Docker in Tamil",
+            "links": [
+                {
+                    "title": "Virtual Machine and the grand house",
+                    "link": "https://parottasalna.com/2024/08/04/virtual-machine-and-the-grand-house/"
+                },
+                {
+                    "title": "The Tale of Magic Kitchen : A Docker Architecture",
+                    "link": "https://parottasalna.com/2024/08/10/the-tale-of-magic-kitchen-a-docker-architecture/"
+                },
+                {
+                    "title": "Virtual Machines VS Containers",
+                    "link": "https://parottasalna.com/2024/08/12/virtual-machines-vs-containers/"
+                },
+                {
+                    "title": "The Digital Tea Kadai – Client Server Architecture & Docker",
+                    "link": "https://parottasalna.com/2024/08/12/the-digital-tea-kadai-client-server-architecture-docker/"
+                },
+                {
+                    "title": "The Bakery, Recepies, Dough & Cookies – Registry, Repository, Images, Containers",
+                    "link": "https://parottasalna.com/2024/08/12/docker-ep-5-the-bakery-recepies-dough-cookies-registry-repository-images-containers/"
+                },
+                {
+                    "title": "Running ‘Hello, World!’ with BusyBox: A Docker Adventure",
+                    "link": "https://parottasalna.com/2024/08/15/docker-ep-6-running-hello-world-with-busybox-a-docker-adventure/"
+                },
+                {
+                    "title": "Diving Deeper into Docker with Detached Mode, Naming, and Inspections",
+                    "link": "https://parottasalna.com/2024/08/15/docker-ep-7-diving-deeper-into-docker-with-detached-mode-naming-and-inspections/"
+                },
+                {
+                    "title": "Tomcat: Exploring Docker Port Mapping and Logs",
+                    "link": "https://parottasalna.com/2024/08/15/docker-ep-8-tomcat-exploring-docker-port-mapping-and-logs/"
+                },
+                {
+                    "title": "The Building Blocks – Detailed Structure of a Dockerfile",
+                    "link": "https://parottasalna.com/2024/08/15/docker-ep-9-the-building-blocks-detailed-structure-of-a-dockerfile/"
+                },
+                {
+                    "title": "Let’s Dockerize a Flask Application",
+                    "link": "https://parottasalna.com/2024/08/18/docker-ep-10-lets-dockerize-a-flask-application/"
+                },
+                {
+                    "title": "Docker Networking & Docker Volumes",
+                    "link": "https://parottasalna.com/2024/08/19/docker-ep-11-docker-networking-docker-volumes/"
+                },
+                {
+                    "title": "Will –no-cache-dir in pip helps in reducing size of docker image ?",
+                    "link": "https://parottasalna.com/2024/06/26/will-no-cache-dir-in-pip-helps-in-reducing-size-of-docker-image/"
+                },
+                {
+                    "title": "Antipatterns while using docker containers",
+                    "link": "https://parottasalna.com/2024/06/30/antipatterns-while-using-docker-containers/"
+                },
+                {
+                    "title": "Docker Directives – Env Directive",
+                    "link": "https://parottasalna.com/2024/07/09/docker-directives-env-directive/"
+                },
+                {
+                    "title": "Docker Directives – ARG Directive",
+                    "link": "https://parottasalna.com/2024/07/10/docker-directives-arg-directive/"
+                },
+                {
+                    "title": "Is ‘Latest’ Tag actually refers to the latest image in docker ?",
+                    "link": "https://parottasalna.com/2024/06/09/is-latest-tag-actually-refers-to-the-latest-image-in-docker/"
+                },
+                {
+                    "title": "COPY or ADD in DOCKERfile ?",
+                    "link": "https://parottasalna.com/2024/06/17/copy-or-add-in-dockerfile/"
+                },
+                {
+                    "title": "Docker Cookbook",
+                    "link": "https://parottasalna.com/2024/06/20/docker-cookbook/"
+                }
+            ]
+        }
+    ]
+}

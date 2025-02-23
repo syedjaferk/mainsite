@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseComponent } from './course/course.component';
 import { FormsModule } from '@angular/forms';
+import Localbase from 'localbase';
+import { JsonApiService } from './api.service';
+
 
 @Component({
   selector: 'app-course-window',
@@ -10,5 +13,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './course-window.component.scss'
 })
 export class CourseWindowComponent {
+
+  constructor(private jsonApiService: JsonApiService) {}
+
+  db = new Localbase('parottasalna_tracker_db');
+  jsonData = {};
+
+  ngOnInit(): void {
+    this.jsonApiService.getData().subscribe(
+      (data) => {
+        this.jsonData = data;
+        console.log(this.jsonData);
+      },
+      (error) => {
+        console.error('Error loading JSON data', error);
+      }
+    );
+  }
 
 }
