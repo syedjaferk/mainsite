@@ -39,3 +39,4 @@ jobs:
           branch: gh-pages
           folder: tracker/dist/tracker
           clean: true
+          token: ${{ secrets.GH_PAT }}
