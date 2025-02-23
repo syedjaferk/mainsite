@@ -25,9 +25,11 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        working-directory: tracker
 
       - name: Build Angular Project
         run: npm run build -- --configuration=production --base-href="/"
+        working-directory: tracker
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
