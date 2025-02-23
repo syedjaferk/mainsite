@@ -2,7 +2,14 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { JsonApiService } from '../api.service';
 
+export interface TableData {
+  id: string;
+  name: string;
+  link: string;
+  checked: boolean;
+}
 
 
 @Component({
@@ -15,95 +22,16 @@ export class CourseTableComponent {
 
   searchText: string = '';
   trackerName: string = '';
+  jsonData: any = {};
+  tableData: TableData[] = [];
 
-  tableData = [
-    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false },
-    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false },
-    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,    { id: 1, name: 'Route ALearning Notes #86 – LocalBase: A Simple Wrapper for IndexedDB', status: 'Active', checked: false },
-    { id: 2, name: 'Route B', status: 'Inactive', checked: false },
-    { id: 3, name: 'Route C', status: 'Active', checked: false },
-    { id: 4, name: 'Route D', status: 'Inactive', checked: false }
-,  ];
+
 
   // Sort function to move checked rows to bottom
   sortedTableData() {
     return this.tableData
       .filter(item => item.name.toLowerCase().includes(this.searchText.toLowerCase())) // Filter based on search
-      .sort((a, b) => Number(a.checked) - Number(b.checked)); // Move checked items to bottom
+      .sort((a: any, b: any) => Number(a.checked) - Number(b.checked)); // Move checked items to bottom
   }
   
 
@@ -112,13 +40,22 @@ export class CourseTableComponent {
     this.tableData = [...this.tableData]; // Force Angular to detect changes
   }
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private jsonApiService: JsonApiService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.trackerName = params.get('trackerName') || 'default';
       console.log('Current Table:', this.trackerName);
     });
+    this.jsonApiService.getData().subscribe(
+        (data) => {
+          this.jsonData = data;
+          this.tableData = this.jsonData['courses'][this.trackerName]['links'];
+        },
+        (error) => {
+          console.error('Error loading JSON data', error);
+        }
+      );
   }
 
   get selectedRows() {

@@ -17,13 +17,14 @@ export class CourseWindowComponent {
   constructor(private jsonApiService: JsonApiService) {}
 
   db = new Localbase('parottasalna_tracker_db');
-  jsonData = {};
+  jsonData: any = {};
+  courses = [];
 
   ngOnInit(): void {
     this.jsonApiService.getData().subscribe(
       (data) => {
         this.jsonData = data;
-        console.log(this.jsonData);
+        this.courses = this.jsonData['courses'];
       },
       (error) => {
         console.error('Error loading JSON data', error);

@@ -34,11 +34,11 @@
       <tbody>
         
         <!-- Display unchecked rows first, then checked rows -->
-        <tr *ngFor="let item of sortedTableData()" class="hover:bg-blue-50">
+        <tr *ngFor="let item of sortedTableData(); let i = index" class="hover:bg-blue-50">
           
           <td class="px-4 py-2 border">{{ item.id }}</td>
           <td class="px-4 py-2 border">
-            <a [href]="item.name">{{ item.name }}
+            <a [href]="item.link" target="_blank">{{ item.name }}
               </a>
             </td>
           <td class="px-4 py-2 border text-center pointer-cursor">
